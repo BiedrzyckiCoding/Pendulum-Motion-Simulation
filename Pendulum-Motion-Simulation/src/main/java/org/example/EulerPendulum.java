@@ -26,66 +26,89 @@ public class EulerPendulum {
     double mass = 1; //[kg]
 
     public void simulate(int steps) {
-        //initial values
-        double a = alphaStartRadians;
-        double o = 0;
+        // Initial values
+        double a = alphaStartRadians; // alpha
+        double o = 0;                 // omega
 
         for (int i = 0; i < steps; i++) {
-            //calculate angular acceleration (epsilon)
+            //time for the current row
+            double t = i * dt;
+
+            //compute angular acceleration from the *old* alpha
             double eps = (g / pendulumLength) * Math.sin(a);
 
-            //store current state
+            //store current alpha, omega, epsilon
             alpha.add(a);
             omega.add(o);
             epsilon.add(eps);
 
-            double da = o * dt;
-            double doVal = eps * dt;
-
+            //compute the small changes
+            double da = o * dt;//delta alpha
+            double doVal = eps * dt;//delta omega
             alphaChange.add(da);
             omegaChange.add(doVal);
 
-            //update values for next iteration
-            o += doVal;
-            a += da;
-
-            //coordinates
+            //compute (x, y) from the *old* alpha
             double x = pendulumLength * Math.cos(a - Math.PI / 2);
             double y = pendulumLength * Math.sin(a - Math.PI / 2);
             xCoord.add(x);
             yCoord.add(y);
 
-            //height above lowest point
-            double h = pendulumLength + y; // y is negative downwards
+            //height above lowest point (y is negative downward)
+            double h = pendulumLength + y;
             height.add(h);
 
-            //time
-            double t = i * dt;
+            //store time
             timeChange.add(t);
 
-            //energies
-            double ep = mass * Math.abs(g) * h;
-            double ek = mass * Math.pow(pendulumLength * o, 2) / 2.0;
+            //energies from the *old* omega, old height
+            double ep = mass * Math.abs(g) * h;                 // Potential
+            double ek = 0.5 * mass * Math.pow(pendulumLength * o, 2); // Kinetic
             double et = ep + ek;
 
             potentialEnergy.add(ep);
             kineticEnergy.add(ek);
             totalEnergy.add(et);
+
+            //finally, update alpha & omega for the *next* step
+            o += doVal;
+            a += da;
         }
     }
 
     public static void main(String[] args) {
         EulerPendulum sim = new EulerPendulum();
-        sim.simulate(200); //simulate 200 steps (here: 2 seconds)
+        sim.simulate(105); //simulate 105 steps to see the different position and to have the same as the excel has lol
+
+        SwingUtilities.invokeLater(() -> {
+            EulerPendulumGui gui = new EulerPendulumGui(
+                    sim.xCoord,
+                    sim.yCoord,
+                    sim.timeChange,
+                    sim.potentialEnergy,
+                    sim.kineticEnergy,
+                    sim.totalEnergy
+            );
+            gui.setVisible(true);
+        });
 
         //example output
         for (int i = 0; i < sim.alpha.size(); i++) {
-            System.out.println("t = " + sim.timeChange.get(i) + ", x = " + sim.xCoord.get(i) + ", y = " + sim.yCoord.get(i));
+            System.out.printf(
+                    "Alpha = %.6f, Omega = %.6f, Eps = %.8f, Dalpha = %.8f, Domega = %.8f, x = %.8f, y = %.8f, H = %.6f, t = %.2f, Ep = %.8f, Ek = %.8f, Et = %.6f%n",
+                    sim.alpha.get(i),
+                    sim.omega.get(i),
+                    sim.epsilon.get(i),
+                    sim.alphaChange.get(i),
+                    sim.omegaChange.get(i),
+                    sim.xCoord.get(i),
+                    sim.yCoord.get(i),
+                    sim.height.get(i),
+                    sim.timeChange.get(i),
+                    sim.potentialEnergy.get(i),
+                    sim.kineticEnergy.get(i),
+                    sim.totalEnergy.get(i)
+            );
         }
-
-        SwingUtilities.invokeLater(() -> {
-            EulerPendulumGui gui = new EulerPendulumGui(sim.xCoord, sim.yCoord);
-            gui.setVisible(true);
-        });
     }
 }

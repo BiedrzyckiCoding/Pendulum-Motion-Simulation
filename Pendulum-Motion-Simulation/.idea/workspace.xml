@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d9ec65a2-d80b-43b6-bb18-5212c3385bd9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pendulum-Motion-Simulation.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EulerPendulum.java" beforeDir="false" />
+    <list default="true" id="01f1e21d-58ee-4da8-b3ee-d3c4a673432b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/EulerPendulum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/EulerPendulum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/EulerPendulumGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/EulerPendulumGui.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +28,7 @@
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 4
 }]]></component>
-  <component name="ProjectId" id="2ukwOEnca81Jrfl7fXhzLmo4X60" />
+  <component name="ProjectId" id="2ul1T6pKJp4GIaqCpxwIEGmveFY" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -51,36 +48,20 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/Users/Admin/Desktop/github repos/Pendulum-Motion-Simulation/Pendulum-Motion-Simulation/src/Main.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
+    "onboarding.tips.debug.path": "C:/Users/Admin/Desktop/github repos/Pendulum-Motion-Simulation/Pendulum-Motion-Simulation/src/main/java/org/example/Main.java",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
-    <configuration name="EulerPendulum" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="EulerPendulum" />
-      <module name="Pendulum-Motion-Simulation" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.EulerPendulum" />
-      </list>
-    </recent_temporary>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="d9ec65a2-d80b-43b6-bb18-5212c3385bd9" name="Changes" comment="" />
-      <created>1742805846243</created>
+      <changelist id="01f1e21d-58ee-4da8-b3ee-d3c4a673432b" name="Changes" comment="" />
+      <created>1742808352203</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1742805846243</updated>
-      <workItem from="1742805847256" duration="2390000" />
+      <updated>1742808352203</updated>
+      <workItem from="1742808353253" duration="1084000" />
     </task>
     <servers />
   </component>
