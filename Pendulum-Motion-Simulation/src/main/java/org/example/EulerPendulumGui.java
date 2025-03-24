@@ -22,7 +22,7 @@ public class EulerPendulumGui extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new GridLayout(2, 1));
 
-        // First Chart: Pendulum Trajectory
+        //first Chart: Pendulum Trajectory
         XYSeries trajectory = new XYSeries("Pendulum Path");
         for (int i = 0; i < xCoord.size(); i++) {
             trajectory.add(xCoord.get(i), yCoord.get(i));
