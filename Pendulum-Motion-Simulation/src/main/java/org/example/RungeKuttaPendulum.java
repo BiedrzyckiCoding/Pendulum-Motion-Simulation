@@ -100,7 +100,7 @@ public class RungeKuttaPendulum {
     }
     public static void main(String[] args) {
         RungeKuttaPendulum sim = new RungeKuttaPendulum();
-        sim.simulate(200); //2 seconds
+        //sim.simulate(200); //2 seconds
         sim.simulate(10000); //should be constant now, or look "normal"
 
         //total energy should be constant now
