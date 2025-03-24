@@ -78,7 +78,8 @@ public class EulerPendulum {
 
     public static void main(String[] args) {
         EulerPendulum sim = new EulerPendulum();
-        sim.simulate(105); //simulate 105 steps to see the different position and to have the same as the excel has lol
+        //sim.simulate(105); //simulate 105 steps to see the different position and to have the same as the excel has lol
+        sim.simulate(10000); //should be a circle, i mean it is a circle xddd
 
         SwingUtilities.invokeLater(() -> {
             EulerPendulumGui gui = new EulerPendulumGui(
