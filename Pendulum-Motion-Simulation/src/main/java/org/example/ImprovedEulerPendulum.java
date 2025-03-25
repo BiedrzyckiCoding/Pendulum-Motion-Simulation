@@ -23,14 +23,15 @@ public class ImprovedEulerPendulum {
     double mass = 1; //[kg]
 
     public void simulate(int steps) {
-        //initial conditions
-        double a = alphaStartRadians;  //alpha
-        double o = 0; //omega
+        // initial conditions
+        double a = alphaStartRadians; // alpha
+        double o = 0;                 // omega
 
         for (int i = 0; i < steps; i++) {
 
             //current time
             double t = i * dt;
+            timeChange.add(t);
 
             //store current alpha, omega
             alpha.add(a);
@@ -40,9 +41,7 @@ public class ImprovedEulerPendulum {
             double eps = (g / pendulumLength) * Math.sin(a);
             epsilon.add(eps);
 
-            //compute energies from current state
-            //position (a), velocity (o)
-            //(x, y)
+            //compute pendulum (x, y) from alpha
             double x = pendulumLength * Math.cos(a - Math.PI / 2);
             double y = pendulumLength * Math.sin(a - Math.PI / 2);
             xCoord.add(x);
@@ -52,30 +51,29 @@ public class ImprovedEulerPendulum {
             double h = pendulumLength + y;
             height.add(h);
 
-            //potential energy, Kinetic energy, Total
+            //potential, kinetic, total energy
             double ep = mass * Math.abs(g) * h;
             double ek = 0.5 * mass * Math.pow(pendulumLength * o, 2);
-            double et = ep + ek;
             potentialEnergy.add(ep);
             kineticEnergy.add(ek);
-            totalEnergy.add(et);
-
-            //time
-            timeChange.add(t);
+            totalEnergy.add(ep + ek);
 
             //k1
             double k1Alpha = fAlpha(a, o);
             double k1Omega = fOmega(a);
 
-            //k2
-            double k2Alpha = fAlpha(a + 0.5 * dt * k1Alpha, o + 0.5 * dt * k1Omega);
+            //k2 (half step)
+            double aMid = a + 0.5 * dt * k1Alpha;
+            double oMid = o + 0.5 * dt * k1Omega;
+            double k2Alpha = fAlpha(aMid, oMid);
             double k2Omega = fOmega(a + 0.5 * dt * k1Alpha);
 
-            // update with midpoint formula (RK2)
+            //use only k2 for the final update
             a += dt * k2Alpha;
             o += dt * k2Omega;
         }
     }
+
 
     //fAlpha( alpha, omega ) = omega
     private double fAlpha(double alpha, double omega) {
