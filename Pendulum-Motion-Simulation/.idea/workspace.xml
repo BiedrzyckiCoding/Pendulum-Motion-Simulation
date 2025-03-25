@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="01f1e21d-58ee-4da8-b3ee-d3c4a673432b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="01f1e21d-58ee-4da8-b3ee-d3c4a673432b" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,6 +34,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.EulerPendulum.executor": "Run",
+    "Application.ImprovedEulerPendulum.executor": "Run",
     "Application.RungeKuttaPendulum.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -63,6 +62,7 @@
       <workItem from="1742808353253" duration="3024000" />
       <workItem from="1742816253352" duration="167000" />
       <workItem from="1742822441705" duration="35000" />
+      <workItem from="1742881321816" duration="981000" />
     </task>
     <servers />
   </component>
